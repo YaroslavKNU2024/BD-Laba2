@@ -1,0 +1,246 @@
+﻿@model Query
+
+@{
+    ViewData["Title"] = "Запити";
+}
+
+<h1>Запити</h1>
+<hr />
+
+<h3>Прості</h3>
+<hr />
+
+<p style="font-size:20px">
+    <b>Запит 1</b>
+</p>
+<p style="font-size:17px">
+    Отримати штами, якими інфікована країна
+</p>
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="SimpleQuery1">
+            <div class="form-group">
+                <label class="control-label">Введіть інфіковану країну: </label>
+                <input class="form-control" id="countryName" name="countryName" type="text" value="" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Надіслати" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+
+<p style="font-size:20px">
+    <b>Запит 2</b>
+</p>
+<p style="font-size:17px">
+    Обрати штами вірусу за назвою
+</p>
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="SimpleQuery2">
+            <div class="form-group">
+                <label class="control-label">Введіть назву вірусу: </label>
+                <input class="form-control" id="VirusName" name="VirusName" type="text" value="" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Надіслати" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+
+<p style="font-size:20px">
+    <b>Запит 3</b>
+</p>
+<p style="font-size:17px">
+    Знайти штами, для яких характерні симптом
+</p>
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="SimpleQuery3">
+            <div class="form-group">
+                <label class="control-label">Введіть симптом:</label>
+                <input class="form-control" id="SymptomName" name="SymptomName" type="text" value="" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Надіслати" class="btn btn-success" />
+
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+
+<p style="font-size:20px">
+    <b>Запит 4</b>
+</p>
+<p style="font-size:17px">
+    Знайти к-ть країн за інфікованих штамом
+</p>
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="SimpleQuery4">
+            <div class="form-group">
+                <label class="control-label">Введіть штам:</label>
+                <input class="form-control" id="VariantName" name="VariantName" type="text" value="" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Надіслати" class="btn btn-success" />
+                
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+
+<p style="font-size:20px">
+    <b id="q5">Запит 5</b>
+</p>
+<p style="font-size:17px">
+    Список штамів у вказаній країні:
+</p>
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="SimpleQuery5">
+            <div class="form-group">
+                <label class="control-label">Введіть країну:</label>
+                <input class="form-control" id="CountryName" name="CountryName" type="text" value="" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Надіслати" class="btn btn-success" />
+                
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+
+
+<p style="font-size:20px">
+    <b id="q5">Запит 6</b>
+</p>
+<p style="font-size:17px">
+    Список вірусів вказаної групи вірусів:
+</p>
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="SimpleQuery6">
+            <div class="form-group">
+                <label class="control-label">Введіть групу вірусів::</label>
+                <input class="form-control" id="GroupName" name="GroupName" type="text" value="" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Надіслати" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+
+<hr />
+
+<h3>Множинні</h3>
+<hr />
+
+<p style="font-size:20px">
+    <b>Запит 1</b>
+</p>
+<p style="font-size:17px">
+    Знайти штами, які знаходяться в країнах, де є заданий штам
+</p>
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="AdvancedQuery1">
+            <div class="form-group">
+                <label class="control-label">Введіть штам:</label>
+                <input class="form-control" id="VariantName" name="VariantName" type="text" value="" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Надіслати" class="btn btn-success" />
+                
+            </div>
+        </form>
+    </div>
+</div>
+<hr />
+
+<p style="font-size:20px">
+    <b>Запит 2</b>
+</p>
+<p style="font-size:17px">
+    	Знайти штами, які мають такі ж симптоми, що і заданий штам
+</p>
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="AdvancedQuery2">
+            <div class="form-group">
+                <label class="control-label">Введіть штам:</label>
+                <input class="form-control" id="VariantName" name="VariantName" type="text" value="" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Надіслати" class="btn btn-success" />
+                
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<p style="font-size:20px">
+    <b>Запит 3</b>
+</p>
+<p style="font-size:17px">
+    	Знайти штами вірусу Х, які поширені в країні У
+</p>
+<div class="row">
+    <div class="col-md-4">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <form asp-action="AdvancedQuery3">
+            <div class="form-group">
+                <label class="control-label">Назва вірусу:</label>
+                <input class="form-control" id="VirusName" name="VirusName" type="text" value="" />
+                <p></p>
+                <label class="control-label">Країна:</label>
+                <input class="form-control" id="CountryName" name="CountryName" type="text" value="" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Надіслати" class="btn btn-success" />
+                
+            </div>
+        </form>
+    </div>
+</div>
+
+<hr />
+    <hr />
+</div>
+
+
+<form method="get" asp-controller="Home" asp-action="Index">
+    <input type="submit" class="btn btn-primary" value="На головну" />
+</form>
+
+@section scripts
+{
+    <script>
+        window.addEventListener("load", function () {
+            if ('@ViewBag.ErrorFlag' == 1) {
+                document.getElementById("q4").scrollIntoView();
+            }
+            else if ('@ViewBag.ErrorFlag' == 2) {
+                document.getElementById("q5").scrollIntoView();
+            }
+        });
+    </script>
+}

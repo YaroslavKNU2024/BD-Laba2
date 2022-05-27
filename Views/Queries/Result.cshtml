@@ -1,0 +1,359 @@
+﻿@model Query
+
+@{
+    ViewData["Title"] = "Результат";
+}
+
+<h1>Результат</h1>
+<hr />
+
+@if (string.IsNullOrEmpty(Model.Error))
+{
+    @if (Model.QueryId.Equals("S1"))
+    {
+        <p style="font-size:20px">
+        </p>
+        <h3>Штами вірусу @Model.VirusName якими інфікована країна @Model.CountryName</h3>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Назва штаму
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.VariantNames == null)
+                {
+                    <tr>
+                        <td>
+                            Штамів не знайдено
+                        </td>
+                    </tr>
+                } else {
+                    @for (int i = 0; i < Model.VariantNames.Count; i++) {
+                        <tr>
+                            <td>
+                                @Model.VariantNames[i]
+                            </td>
+                        </tr>
+                    }
+                }
+        </tbody>
+        </table>
+    }
+    else if (Model.QueryId.Equals("S2"))
+    {
+        <p style="font-size:20px">
+            <b>Штами вірусу @Model.VirusName</b>
+        </p>
+        <h3>Штами вірусу @Model.VirusName</h3>
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th>
+                        Штам
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.VariantNames == null) {
+                    <tr>
+                        <td>
+                            Штамів не знайдено
+                        </td>
+                    </tr>
+                } else {
+                    @for (int i = 0; i < Model.VariantNames.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                @Model.VariantNames[i]
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    }
+    else if (Model.QueryId.Equals("S3"))
+    {
+        <p style="font-size:20px">
+            <h3>Штами для яких характерний симптом @Model.SymptomName</h3>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Штам
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.VariantNames == null) {
+                    <tr>
+                        <td>
+                            Штамів не знайдено
+                        </td>
+                    </tr>
+                } else {
+                    @for (int i = 0; i < Model.VariantNames.Count; i++) {
+                        <tr>
+                            <td>
+                                @Model.VariantNames[i]
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    }
+    else if (Model.QueryId.Equals("S4"))
+    {
+        <p style="font-size:20px">
+            <h3>Штами вірусу @Model.VirusName якими інфікована країна @Model.CountryName</h3>
+
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Кількість інфікованих країн:
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Model.countryNamesCount
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    }
+    else if (Model.QueryId.Equals("S5"))
+    {
+        <p style="font-size:20px">
+            <h3>Штами, якими інфікована країна @Model.CountryName</h3>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Штам:
+                    </th>
+                </tr>
+            </thead>
+            <tbody>@if (Model.VariantNames == null) {
+                    <tr>
+                        <td>
+                            Штамів не знайдено
+                        </td>
+                    </tr>
+                } else {
+                    @for (int i = 0; i < Model.VariantNames.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                @Model.VariantNames[i]
+                            </td>
+                        </tr>
+                    }
+                }
+               
+            </tbody>
+        </table>
+    }
+    else if (Model.QueryId.Equals("S6"))
+    {
+        <p style="font-size:20px">
+            <h3>Віруси групи @Model.GroupName</h3>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Вірус
+                    </th>
+                </tr>
+            </thead>
+            <tbody>@if (Model.VirusNamesByGroup == null) {
+                    <tr>
+                        <td>
+                            Штамів не знайдено
+                        </td>
+                    </tr>
+                } else {
+                    @for (int i = 0; i < Model.VirusNamesByGroup.Count; i++)
+                    {
+                        <tr>
+                            <td>
+                                @Model.VirusNamesByGroup[i]
+                            </td>
+                        </tr>
+                    }
+                }
+               
+            </tbody>
+        </table>
+    }
+    else if (Model.QueryId.Equals("A1"))
+    {
+        <p style="font-size:20px">
+            <h3>Штами вірусу @Model.VirusName якими інфікована країна @Model.CountryName</h3>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Штам
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.VariantNames == null)
+                {
+                    <tr>
+                    <th>
+                        None
+                    </th>
+                </tr>
+                } else {
+                @for (int i = 0; i < Model.VariantNames.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Model.VariantNames[i]
+                        </td>
+                    </tr>
+                }
+                }
+            </tbody>
+        </table>
+    }
+    else if (Model.QueryId.Equals("A2"))
+    {
+        <p style="font-size:20px">
+            <h3>Штами вірусу @Model.VirusName які мають такий же симптом що і @Model.VariantName</h3>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Штам
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.VariantNames == null)
+                {
+                    <tr>
+                    <th>
+                        None
+                    </th>
+                </tr>
+                }else {@for (int i = 0; i < Model.VariantNames.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Model.VariantNames[i]
+                        </td>
+                    </tr>
+                }
+                }
+            </tbody>
+        </table>
+    }
+    else if (Model.QueryId.Equals("A3"))
+    {
+        <p style="font-size:20px">
+            <h3>Штами вірусу @Model.VirusName якими інфікована країна @Model.CountryName</h3>
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        Назва штаму
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.VariantNames == null)
+                {
+                    <tr>
+                    <th>
+                        None
+                    </th>
+                </tr>
+                }else {@for (int i = 0; i < Model.VariantNames.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            @Model.VariantNames[i]
+                        </td>
+                    </tr>
+                }
+                }
+            </tbody>
+        </table>
+    }
+}
+else
+{
+    <p style="font-size:20px">
+        Результат запиту порожній.
+        <br />
+        Будь ласка, спробуйте ще раз з іншим параметром.
+    </p>
+}
+
+<table>
+    <tr>
+        <td>
+            <form method="get" asp-controller="Queries" asp-action="Index">
+                <input type="submit" class="btn btn-primary" value="Назад до запитів" />
+            </form>
+        </td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+            <form method="get" asp-controller="Home" asp-action="Index">
+                <input type="submit" class="btn btn-primary" value="На головну" />
+            </form>
+        </td>
+    </tr>
+</table>
+
+
+<div class="modal fade" id="error" tabindex="-1" role="alertdialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Повідомлення</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="errorText">
+                @Model.Error
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">ОК</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts
+{
+    <script>
+        window.addEventListener("load", function () {
+            if ('@Model.ErrorFlag' == 1) {
+                $("#error").modal();
+            }
+        });
+    </script>
+}
